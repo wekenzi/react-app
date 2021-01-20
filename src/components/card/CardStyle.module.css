@@ -1,0 +1,7 @@
+.monsterCard{
+    transition: 0.5s;
+}
+
+.monsterCard:hover{
+    box-shadow: 0 3px 10px 3px #cccccc;
+}

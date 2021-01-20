@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import React from "react";
+import { useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import Posts from './components/posts/Posts';
+import Nav from "./components/nav/Nav";
+import AddPost from "./components/add-post/AddPost";
 
-function App() {
+// App Component
+const App = () =>{
+
+  useEffect(()=>{
+    console.log('App init');
+    return ()=> console.log('App Unmounted')
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <div className="App">
+      <Nav/>
+      <div className="container">
+        <Switch>
+          <Route exact path="/" component={Posts} />
+          <Route exact path="/addpost" component={AddPost} />
+        </Switch>
+      </div>
+  </div>
   );
 }
 
