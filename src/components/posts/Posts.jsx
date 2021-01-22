@@ -9,8 +9,9 @@ const Posts = () => {
     const getCardsData = async () =>{
         try {
             const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
-            sessionStorage.setItem('posts', JSON.stringify(data));
-            setPosts(data);
+            let dataTransform = data.map(x=>({id:x.id,name:x.name,phone:x.phone}))
+            sessionStorage.setItem('posts', JSON.stringify(dataTransform));
+            setPosts(dataTransform);
         } catch (error) {
             throw error;
         }
@@ -30,6 +31,11 @@ const Posts = () => {
     function deleteCard(index){
         const postsDel = [...posts];
         postsDel.splice(index, 1);
+        if(postsDel.length > 0) {
+            sessionStorage.setItem('posts', JSON.stringify(postsDel));
+        }else{
+            sessionStorage.removeItem('posts');
+        }
         setPosts(postsDel);
     }
     
