@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 
 const AddPost = () => {
 
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit, errors } = useForm();
     const onSubmit = data => {
         console.log(data);
     }
@@ -23,7 +23,7 @@ const AddPost = () => {
                             <textarea className="form-control" id="content" name="content" rows="3" ref={register({ required: true })}></textarea>
                             {errors.content && <small className="text-danger">Type content</small>}
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-primary d-block m-auto">Submit</button>
                     </form>
                 </div>
             </div>

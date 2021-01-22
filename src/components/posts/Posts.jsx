@@ -1,42 +1,48 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Card from '../card/Card';
 
-const Posts = (props) => {
+const Posts = () => {
 
-    let [monsters, setMosters] = useState([]);
+    let [posts, setPosts] = useState([]);
 
     const getCardsData = async () =>{
         try {
-            const fetchedData = await fetch('https://jsonplaceholder.typicode.com/users')
-            const res = await fetchedData.json();
-            setMosters(res);
+            const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
+            sessionStorage.setItem('posts', JSON.stringify(data));
+            setPosts(data);
         } catch (error) {
-            alert(error);
+            throw error;
         }
     }
 
     useEffect(()=>{
+        const postsInSession = sessionStorage.getItem('posts');
         console.log('Card List init');
-        getCardsData();
+        if(postsInSession){
+            setPosts(JSON.parse(postsInSession));
+        }else{
+            getCardsData();
+        }
         return () => console.log('Unmounted Card List');
     },[])
     
     function deleteCard(index){
-        const monstersDel = [...monsters];
-        monstersDel.splice(index, 1);
-        setMosters(monstersDel);
+        const postsDel = [...posts];
+        postsDel.splice(index, 1);
+        setPosts(postsDel);
     }
     
-    function loopOnMonsters(){
-        const monstersArr = monsters.map((monster,index) => <Card monster={monster} key={monster.id} onDeleteClick={()=>deleteCard(index)} />);
-        return monstersArr;
+    function loopOnposts(){
+        const postsArr = posts.map((post,index) => <Card post={post} key={post.id} onDeleteClick={()=>deleteCard(index)} />);
+        return postsArr;
     }
 
-    const posts = <div className="row">{loopOnMonsters()}</div>;
+    const postsList = <div className="row">{loopOnposts()}</div>;
 
     return (
         <div>
-            {posts}
+            {postsList}
         </div>
     );
 };
