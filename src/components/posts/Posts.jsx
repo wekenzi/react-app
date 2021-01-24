@@ -38,17 +38,10 @@ const Posts = () => {
         }
         setPosts(postsDel);
     }
-    
-    function loopOnposts(){
-        const postsArr = posts.map((post,index) => <Card post={post} key={post.id} onDeleteClick={()=>deleteCard(index)} />);
-        return postsArr;
-    }
-
-    const postsList = <div className="row">{loopOnposts()}</div>;
 
     return (
-        <div>
-            {postsList}
+        <div className="row">
+            {posts.map((post,index) => <Card post={post} key={post.id} onDeleteClick={()=>deleteCard(index)} />)}
         </div>
     );
 };
