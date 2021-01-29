@@ -1,0 +1,23 @@
+.navbar{
+    background-color: #fff;
+}
+.nav-link{
+    color: #337ab7;
+    display: flex;
+    align-items: center;
+}
+.nav-link img{
+    margin: 0px 2px;
+    width: 30px;
+}
+.navbar-nav{
+    display: flex;
+    align-items: center;
+}
+.nav-item{
+    border-bottom: 5px solid #fff;
+    margin-bottom: -12px;
+}
+.nav-item:hover{
+    border-bottom: 5px solid #8fb9e8;
+}
