@@ -14,10 +14,10 @@
     display: flex;
     align-items: center;
 }
-.nav-item{
+.nav-link{
     border-bottom: 5px solid #fff;
     margin-bottom: -12px;
 }
-.nav-item:hover{
+.nav-link:hover, .nav-link.active{
     border-bottom: 5px solid #8fb9e8;
 }
