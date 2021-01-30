@@ -1,23 +1,26 @@
-.navbar{
+.menu-bar .navbar{
     background-color: #fff;
 }
-.nav-link{
+.menu-bar .navbar-brand img{
+    margin-top: -7px;
+}
+.menu-bar .nav-link{
     color: #337ab7;
     display: flex;
     align-items: center;
 }
-.nav-link img{
+.menu-bar .nav-link img{
     margin: 0px 2px;
     width: 30px;
 }
-.navbar-nav{
+.menu-bar .navbar-nav{
     display: flex;
     align-items: center;
 }
-.nav-link{
+.menu-bar .nav-link{
     border-bottom: 5px solid #fff;
-    margin-bottom: -12px;
+    margin-bottom: -6px;
 }
-.nav-link:hover, .nav-link.active{
+.menu-bar .nav-link:hover, .menu-bar .nav-link.active{
     border-bottom: 5px solid #8fb9e8;
 }

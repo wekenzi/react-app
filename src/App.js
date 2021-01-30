@@ -5,6 +5,7 @@ import './App.css';
 import Posts from './components/posts/Posts';
 import Nav from "./components/nav/Nav";
 import AddPost from "./components/add-post/AddPost";
+import TopBar from "./components/top-bar/TopBar";
 
 // App Component
 const App = () =>{
@@ -16,6 +17,7 @@ const App = () =>{
 
   return (
   <div className="App">
+      <TopBar/>
       <Nav/>
       <div className="container">
         <Switch>
