@@ -6,6 +6,7 @@ import Posts from './components/posts/Posts';
 import Nav from "./components/nav/Nav";
 import AddPost from "./components/add-post/AddPost";
 import TopBar from "./components/top-bar/TopBar";
+import HomeSlider from "./components/home-slider/HomeSlider";
 
 // App Component
 const App = () =>{
@@ -19,6 +20,7 @@ const App = () =>{
   <div className="App">
       <TopBar/>
       <Nav/>
+      <HomeSlider/>
       <div className="container">
         <Switch>
           <Route exact path="/" component={Posts} />
